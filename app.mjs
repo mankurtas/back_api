@@ -4,6 +4,7 @@ import cors from 'cors'
 
 import authRoutes from "./routes/authRoutes.mjs";
 import bookRoutes from "./routes/bookRoutes.mjs";
+import catRouts from "./routes/catTours.mjs";
 
 const app = express();
 // Body parser
@@ -29,6 +30,10 @@ app.use("/api/v1/auth", authRoutes);
 //books
 
 app.use("/api/v1/books", bookRoutes);
+
+//categories
+app.use("/api/v1/categories", catRouts);
+
 
 
 //centralized errors handler
