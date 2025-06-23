@@ -18,3 +18,23 @@ export const allBooks = async () => {
   `;
   return allBooks;
 };
+
+//insert Book
+
+export const insertNewBook = async (newBook) => {
+  const {
+    title,
+    author_id,
+    category_id
+  } = newBook;
+
+  const [book] = await sql`
+    INSERT INTO books
+      (title, author_id, category_id)
+    VALUES 
+      (${title}, ${author_id}, ${category_id})
+    RETURNING *;
+  `;
+
+  return book;
+};
