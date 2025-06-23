@@ -22,19 +22,30 @@ export const allBooks = async () => {
 //insert Book
 
 export const insertNewBook = async (newBook) => {
-  const {
+   const {
     title,
-    author_id,
-    category_id
+    authorid,
+    categoryid,
+    cover 
   } = newBook;
 
   const [book] = await sql`
     INSERT INTO books
-      (title, author_id, category_id)
+      (title, author_id, category_id, cover)
     VALUES 
-      (${title}, ${author_id}, ${category_id})
+      (${title}, ${authorid}, ${categoryid}, ${cover})
     RETURNING *;
   `;
 
   return book;
 };
+
+export const deleteBookById = async (id) => {
+  const [book] = await sql`
+    DELETE FROM books
+    WHERE books.id = ${id} 
+    `;
+
+  return book;
+};
+

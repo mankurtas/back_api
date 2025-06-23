@@ -4,7 +4,7 @@ import cors from 'cors'
 
 import authRoutes from "./routes/authRoutes.mjs";
 import bookRoutes from "./routes/bookRoutes.mjs";
-import catRouts from "./routes/catTours.mjs";
+import catRouts from "./routes/catRoutes.mjs";
 import authorsRoutes from "./routes/authorsRoutes.mjs"
 
 

@@ -7,6 +7,6 @@ import { getAuthors } from "../controllers/authorsController.mjs";
 const authorsRoutes = express.Router();
 
 
-authorsRoutes.route("/vies").get(protect,getAuthors)
+authorsRoutes.route("/view").get(protect,getAuthors)
 
 export default authorsRoutes
