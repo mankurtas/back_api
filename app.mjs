@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from 'cors'
 
 import authRoutes from "./routes/authRoutes.mjs";
+import bookRoutes from "./routes/bookRoutes.mjs";
 
 const app = express();
 // Body parser
@@ -23,6 +24,12 @@ app.use(cookieParser());
 
 
 app.use("/api/v1/auth", authRoutes);
+
+
+//books
+
+app.use("/api/v1/books", bookRoutes);
+
 
 //centralized errors handler
 app.use((err, req, res, next) => {

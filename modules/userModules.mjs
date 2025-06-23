@@ -5,15 +5,19 @@ import { sql } from "../dbConnection.mjs";
 export const createUser = async (newUser) => {
   const { username, email, password } = newUser;
 
-  const [user] = await sql`
-    INSERT into users
-    (username, email, password)
-    VALUES 
-    (${username}, ${email}, ${password})
-    RETURNING*
+  try {
+    const [user] = await sql`
+      INSERT INTO users
+      (username, email, password)
+      VALUES 
+      (${username}, ${email}, ${password})
+      RETURNING *;
     `;
-
-  return user;
+    return user;
+  } catch (err) {
+    console.error('Error inserting user:', err);
+    throw new Error('Failed to create user');
+  }
 };
 
 //Get user by username

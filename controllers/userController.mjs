@@ -33,7 +33,7 @@ const sendTokenCookie = (token, res) => {
 export const register = async (req, res, next) => {
   try {
     const newUser = req.body;
-   
+    
     
     const hash = await argon2.hash(newUser.password);
 
